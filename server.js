@@ -28,7 +28,7 @@ router.use(function(req, res, next) {
 });
 
 // Regular expression to match a title element
-var titleRegex = /<title.*>(.+?)<\/title>/im;
+var titleRegex = /<title.*>([\s\S]*?)<\/title>/im;
 
 // Process a link to return the title for that page
 var processLink = function(link, callback) {
