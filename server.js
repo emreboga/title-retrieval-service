@@ -50,8 +50,9 @@ var processLink = function(link, callback) {
             // error: set result.error accordingly
             if (error) {
                 result.error = error;
+                result.error.statusCode = response.statusCode;
             } else {
-                result.error = response.statusCode;
+                result.error = {'statusCode': response.statusCode};
             }
         }
         // return the results
