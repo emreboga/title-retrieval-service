@@ -48,14 +48,15 @@ var processLink = function(link, callback) {
             if (title) {
                 result.title = title;
             } else {
-                result.error = {'message': 'Title not found'};
+                result.error = {'message': 'Failed to find the title element on the page'};
             }
         } else {
             // error: set result.error accordingly
+            result.error = {'message': 'Request failed'};
             if (error) {
-                result.error = error;
+                result.error.internalError = error;
             } else {
-                result.error = response.statusCode;
+                result.error.statusCode = response.statusCode;
             }
         }
         // return the results
