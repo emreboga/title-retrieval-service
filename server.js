@@ -45,7 +45,11 @@ var processLink = function(link, callback) {
             } else {
                 console.log(body);
             }
-            result.title = title === null ? 'Not Found' : title;
+            if (title) {
+                result.title = title;
+            } else {
+                result.error = {'message': 'Title not found'};
+            }
         } else {
             // error: set result.error accordingly
             if (error) {
